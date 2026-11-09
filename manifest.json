@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "CodePigeon",
+  "version": "0.3.0",
+  "description": "프로그래머스 풀이 과정(실패 포함)을 GitHub에 기록하는 확장",
+  "permissions": ["storage"],
+  "host_permissions": ["https://api.github.com/*"],
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    {
+      "matches": ["https://school.programmers.co.kr/learn/courses/30/lessons/*"],
+      "js": ["format.js", "content.js"]
+    }
+  ],
+  "options_page": "options.html",
+  "icons": { "16": "icons/icon16.png", "32": "icons/icon32.png", "48": "icons/icon48.png", "128": "icons/icon128.png" },
+  "action": {
+    "default_title": "CodePigeon",
+    "default_icon": { "16": "icons/icon16.png", "32": "icons/icon32.png" }
+  }
+}
